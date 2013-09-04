@@ -59,6 +59,8 @@ class OmahaRequestParams {
                      const std::string& in_target_channel,
                      const std::string& in_hwid,
                      const std::string& in_bootid,
+                     const std::string& in_previousbootid,
+                     const std::string& in_oem,
                      bool in_delta_okay,
                      bool in_interactive,
                      const std::string& in_update_url,
@@ -77,6 +79,8 @@ class OmahaRequestParams {
         target_channel_(in_target_channel),
         hwid_(in_hwid),
         bootid_(in_bootid),
+        previousbootid_(in_previousbootid),
+        oem_(in_oem),
         delta_okay_(in_delta_okay),
         interactive_(in_interactive),
         update_url_(in_update_url),
@@ -100,6 +104,8 @@ class OmahaRequestParams {
   inline std::string app_lang() const { return app_lang_; }
   inline std::string hwid() const { return hwid_; }
   inline std::string bootid() const { return bootid_; }
+  inline std::string previousbootid() const { return previousbootid_; }
+  inline std::string oem() const { return oem_; }
 
   inline void set_app_version(const std::string& version) {
     app_version_ = version;
@@ -275,6 +281,8 @@ class OmahaRequestParams {
   std::string target_channel_;
   std::string hwid_;  // Hardware Qualification ID of the client
   std::string bootid_;  // Kernel generated guid that identifies this boot
+  std::string previousbootid_;  // Kernel generated guid that identifies this boot
+  std::string oem_;  // Kernel generated guid that identifies this boot
   bool delta_okay_;  // If this client can accept a delta
   bool interactive_;   // Whether this is a user-initiated update check
 

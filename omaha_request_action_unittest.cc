@@ -52,6 +52,8 @@ OmahaRequestParams kDefaultTestParams(
     "unittest",
     "OEM MODEL 09235 7471",
     "{8DA4B84F-2864-447D-84B7-C2D9B72924E7}",
+    "{009F39E0-FB85-40AA-9983-98D64873466B}",
+    "oemtest",
     false,  // delta okay
     false,  // interactive
     "http://url",
@@ -932,6 +934,10 @@ TEST(OmahaRequestActionTest, FormatUpdateCheckOutputTest) {
             string::npos);
   EXPECT_NE(post_str.find("bootid=\"{8DA4B84F-2864-447D-84B7-C2D9B72924E7}\""),
             string::npos);
+  EXPECT_NE(post_str.find("previousbootid=\"{009F39E0-FB85-40AA-9983-98D64873466B}\""),
+            string::npos);
+  EXPECT_NE(post_str.find("oem=\"testoem\""),
+            string::npos);
 }
 
 
@@ -960,6 +966,10 @@ TEST(OmahaRequestActionTest, FormatUpdateDisabledOutputTest) {
   EXPECT_NE(post_str.find("hardware_class=\"OEM MODEL 09235 7471\""),
             string::npos);
   EXPECT_NE(post_str.find("bootid=\"{8DA4B84F-2864-447D-84B7-C2D9B72924E7}\""),
+            string::npos);
+  EXPECT_NE(post_str.find("previousbootid=\"{009F39E0-FB85-40AA-9983-98D64873466B}\""),
+            string::npos);
+  EXPECT_NE(post_str.find("oem=\"testoem\""),
             string::npos);
 }
 
