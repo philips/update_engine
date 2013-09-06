@@ -831,6 +831,8 @@ TEST(OmahaRequestActionTest, XmlEncodeTest) {
                             "unittest_track&lt;",
                             "<OEM MODEL>",
                             "{8DA4B84F-2864-447D-84B7-C2D9B72924E7}",
+			    "{009F39E0-FB85-40AA-9983-98D64873466B}",
+			    "oemtest",
                             false,  // delta okay
                             false,  // interactive
                             "http://url",
